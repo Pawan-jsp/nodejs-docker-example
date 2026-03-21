@@ -35,6 +35,12 @@ jobs:
       # Push
       - run: |
           docker push 545009838877.dkr.ecr.ap-south-1.amazonaws.com/github-ecr:latest
+       # Deploy
+      - run: |
+          aws ecs update-service \
+            --cluster helpful-horse-l4gf01 \
+            --service github-ecs-service-en87niob \
+            --force-new-deployment
       
 
 
