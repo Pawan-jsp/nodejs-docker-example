@@ -26,15 +26,14 @@ jobs:
 
       # Build Frontend Image
       - run: |
-          docker build -t github-ecr .
+          docker build -t pawan-ecr .
 
       # Tag
       - run: |
-          docker tag github-ecr:latest 545009838877.dkr.ecr.ap-south-1.amazonaws.com/github-ecr:latest
-
+          docker tag pawan-ecr:latest 545009838877.dkr.ecr.ap-south-1.amazonaws.com/pawan-ecr:latest
       # Push
       - run: |
-          docker push 545009838877.dkr.ecr.ap-south-1.amazonaws.com/github-ecr:latest
+          docker push 545009838877.dkr.ecr.ap-south-1.amazonaws.com/pawan-ecr:latest
        # Deploy
       - run: |
           aws ecs update-service \
