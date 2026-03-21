@@ -20,4 +20,22 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
+      # ECR Login
+      - run: |
+          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 545009838877.dkr.ecr.ap-south-1.amazonaws.com
+
+      # Build Frontend Image
+      - run: |
+          docker build -t github-ecr .
+
+      # Tag
+      - run: |
+          docker tag github-ecr:latest 545009838877.dkr.ecr.ap-south-1.amazonaws.com/github-ecr:latest
+
+      # Push
+      - run: |
+          docker push 545009838877.dkr.ecr.ap-south-1.amazonaws.com/github-ecr:latest
+      
+
+
       
