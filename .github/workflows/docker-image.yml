@@ -37,8 +37,8 @@ jobs:
        # Deploy
       - run: |
           aws ecs update-service \
-            --cluster helpful-horse-l4gf01 \
-            --service github-ecs-service-en87niob \
+            --cluster pawan-ecs \
+            --service pawan-ecr-service-9u279cix \
             --force-new-deployment
       
 
