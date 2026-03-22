@@ -37,8 +37,8 @@ jobs:
        # Deploy
       - run: |
           aws ecs update-service \
-            --cluster pawan-ecs \
-            --service pawan-ecr-service-9u279cix \
+            --cluster pleasant-shark-b155lq \
+            --service pawan-ecs-3-service-fl0szt4h \
             --force-new-deployment
       
 
